@@ -58,7 +58,7 @@ public class AppTest {
 	public void addOneItemAndGetTotalPrice()
 	{
 		ShoppingCart cart = new ShoppingCart();
-		cart.addItem(new Item(ItemType.APPLE, new BigDecimal("0.60")), 1);
+		cart.addItem(new Item(ItemType.APPLE, new BigDecimal("0.60")), 1);	
 		Assert.assertEquals(new BigDecimal("0.60"), cart.getTotalPrice());	
 	}
 	
@@ -89,5 +89,19 @@ public class AppTest {
 		cart.addItem(new Item(ItemType.ORANGE, new BigDecimal("0.25")), 3);
 		Assert.assertEquals(new BigDecimal("3.15"), cart.getTotalPrice());		
 	}
+	
+	@Test
+	public void applyBuyOneGetOneFreeForApples()
+	{
+		ShoppingCart cart = new ShoppingCart();
+		cart.setBuyOneGetOne(true);
+		cart.addItem(new Item(ItemType.APPLE, new BigDecimal("0.60")), 1);
+		cart.addItem(new Item(ItemType.APPLE, new BigDecimal("0.60")), 1);
+		cart.addItem(new Item(ItemType.APPLE, new BigDecimal("0.60")), 1);	
+		
+		Assert.assertEquals(new BigDecimal("1.20"), cart.getTotalPrice());		
+		
+	}
+	
 	
 }
