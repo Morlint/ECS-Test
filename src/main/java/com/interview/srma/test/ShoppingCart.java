@@ -93,11 +93,7 @@ public class ShoppingCart {
 
 	}
 
-	public void applyBuyOneGetOneOffer() {
-		if (buyOneGetOne && totalNoOfItemsForBuyOneGetOne > 0) {
-
-		}
-	}
+	
 
 	public boolean isBuyTwoGetOne() {
 		return buyTwoGetOne;
